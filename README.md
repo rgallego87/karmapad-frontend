@@ -29,9 +29,15 @@ For example, I could review an important email before send to check if the vocab
 
   **Edit text** As a user I want to edit my own text and reanalize again.
 
+  **Chat with analyze** As a user I want to view how are all the messages on a chat
+
   **Text suggestions** As a user I want to recieve word suggestions to improve my texts on the way to make more positive.  
 
   **Voice to text** As a user I want to write text without hands, only with my voice.
+
+# External APIs
+
+ - Microsoft Azure
   
 # Client
 
@@ -132,4 +138,10 @@ For example, I could review an important email before send to check if the vocab
   - POST /texts/:id/analize  
   - GET /texts/my-texts
 
-  
+# Links
+
+- Backend Repo -> https://github.com/rgallego87/karmapad-backend/edit/master
+- Trello -> https://trello.com/b/pmdANZar/karmapad
+- Deploy ->
+
+
