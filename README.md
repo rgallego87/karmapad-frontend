@@ -73,7 +73,8 @@ For example, I could review an important email before send to check if the vocab
   - CreateOne()
   - listTextTemplates()
   - getAllById(id)
-  - getOne(id)   
+  - getOne(id)
+  - analyze(id)
 
 ## Pages
 
