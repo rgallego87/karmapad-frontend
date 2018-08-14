@@ -1,17 +1,26 @@
 <h2>Login page</h2>
 
-<form (ngSubmit)="submitForm(form)" #form="ngForm" >
-
-  <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
-    <label>Username</label>
-    <input type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" required/>    
-
-    <label>Password</label>
-    <input type="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required/>
-
+<div class="form-wrapper">
+    <h2>Login</h2>
+  
+    <form (ngSubmit)="submitForm(form)" #form="ngForm" >
+  
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
+        
+        <span class="ui-float-label">
+            <input id="float-input" name="username" type="text" [(ngModel)]="username" #usernameField="ngModel" size="30" pInputText required> 
+            <label for="float-input"> <i class="fa fa-user"></i> Username</label>
+        </span>        
+  
+        <span class="ui-float-label">
+            <input name="password" type="password" [(ngModel)]="password" #passwordField="ngModel" size="30" pPassword required> 
+            <label for="float-input"> <i class="fas fa-key"></i> Password</label>
+        </span>        
+  
+      </div>
+      
+      <div class="field submit">
+        <button pButton type="submit" label="Login" class="ui-button"></button>        
+      </div>
+    </form>
   </div>
-
-  <div class="field submit">
-    <button type="submit">Login</button>    
-  </div>
-</form>
