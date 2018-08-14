@@ -140,8 +140,8 @@ For example, I could review an important email before send to check if the vocab
 
 # Links
 
-- Backend Repo -> https://github.com/rgallego87/karmapad-backend/edit/master
-- Trello -> https://trello.com/b/pmdANZar/karmapad
-- Deploy ->
+- [Backend Repo](https://github.com/rgallego87/karmapad-backend/edit/master)
+- [Trello](https://trello.com/b/pmdANZar/karmapad)
+- [Deploy]
 
 
