@@ -1,9 +1,41 @@
-body {
-  font-family: 'Open Sans', sans-serif;
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
 }
 
-h1 {
-  font-family: 'Fredericka the Great', cursive;
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---- layout ---- */
+
+.footer {
+  width: 100%;
+  position: absolute;
+  background-color: #186ba0;
+  color: #fff;
+  font-family: 'Open Sans', Helvetica, sans-serif;
   text-align: center;
-  color: #88B04B;
+  bottom: 0;
+}
+
+.footer ul {
+  margin: 0;
+  padding: 0;
+}
+
+.footer ul h3 {
+  margin: 0;
+  padding: 10px;
+}
+
+.footer ul li {
+  list-style-type: none;
 }

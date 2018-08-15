@@ -4,13 +4,9 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Open+Sans" rel="stylesheet">
 
+<app-navbar></app-navbar>
 
-<h1>KarmaPAD</h1>
-
-<div [ngClass]="{'is-user': user, 'is-anon': anon}">
-  <div *ngIf="loading">
-    <span class="username text">loading...</span>
-  </div>
+<!-- <div [ngClass]="{'is-user': user, 'is-anon': anon}">  
   <div *ngIf="!loading && !!user">
     <a [routerLink]="['/private']">{{user.username}}</a>
     <a (click)="logout()">logout</a>
@@ -19,6 +15,16 @@
     <a [routerLink]="['/login']">login</a>
     <a [routerLink]="['/signup']">signup</a>
   </div>
-</div>
+</div> -->
 
 <router-outlet></router-outlet>
+
+<footer>
+  <div class="footer">
+    <ul>
+      <h3>Contact Info</h3>
+      <li>By Rafa Gallego</li>      
+      <li><a href="mailto:rgdmax@gmail.com"></a> Email: rgdmax@gmail.com</li>
+    </ul>
+  </div>
+</footer>

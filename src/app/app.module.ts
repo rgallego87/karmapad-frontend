@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 // Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 // Pages
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
@@ -17,7 +18,9 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AccordionModule } from 'primeng/accordion';   
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
-import { ButtonModule } from 'primeng/button'; 
+import { ButtonModule } from 'primeng/button';
+import { MenuModule } from 'primeng/menu';
+// import { MenuItem } from 'primeng/api'; 
 // Guards
 import { RequireAnonGuard } from './guards/require-anon.guard';
 import { RequireUserGuard } from './guards/require-user.guard';
@@ -38,6 +41,7 @@ const routes: Routes = [ { path: '', component: HomeComponent, canActivate: [Ini
     SignupPageComponent,
     PrivatePageComponent,
     HomePageComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,9 @@ const routes: Routes = [ { path: '', component: HomeComponent, canActivate: [Ini
     AccordionModule,
     InputTextModule,
     PasswordModule,
-    ButtonModule 
+    ButtonModule,
+    MenuModule,
+    // MenuItem 
   ],
   providers: [],
   bootstrap: [AppComponent]

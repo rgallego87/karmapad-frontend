@@ -1,0 +1,11 @@
+<div class="navbar">
+  <div class="nav-link nav-link-brand">
+    <h1><a [routerLink]="['/']">KarmaPAD</a></h1>
+  </div>  
+ <nav class="nav-items nav-items-right">  
+  <p-menu #menu [popup]="true" [model]="items"></p-menu>
+  <button type="button" pButton icon="fa fa-fw fa-bars" (click)="menu.toggle($event)"></button>
+ </nav>
+</div>
+
+
