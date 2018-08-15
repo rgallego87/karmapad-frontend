@@ -9,6 +9,10 @@ import { Router } from '@angular/router';
 })
 export class SignupPageComponent implements OnInit {
 
+  feedbackEnabled = false;
+  error = null;
+  processing = false;  
+
   username: string;
   password: string;
 
@@ -21,13 +25,23 @@ export class SignupPageComponent implements OnInit {
   }
 
   submitForm(form) {
-    this.authService.signup({
-      username: this.username,
-      password: this.password
-    }).then(() => {
-      this.router.navigate(['/private']);
-    })
-    .catch(error => console.log(error));
+    this.error = '';
+    this.feedbackEnabled = true;
+    if (form.valid) {
+      this.processing = true;
+      this.authService.signup({
+        username: this.username,
+        password: this.password
+      }).then(() => {
+        this.router.navigate(['/private']);
+      })
+      .catch(error => {            
+        this.error = error.error;
+        console.log(error);
+        this.processing = false;
+        this.feedbackEnabled = false
+      });
+    }
   }
 
 }

@@ -13,8 +13,20 @@ h2 {
   border-radius: 5px;
 }
 
+.form-wrapper p {
+  font-family: 'Open Sans', sans-serif;
+  color: red;
+}
+
 .field span {
-  margin: 20px;
+  margin: 20px;  
+}
+
+.field a {
+  margin-right: 20px;    
+  text-decoration: none;
+  color: #fff;
+  float: right;
 }
 
 .field label {
@@ -28,3 +40,4 @@ h2 {
 .submit {
   width: 320px;
 }
+

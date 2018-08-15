@@ -1,24 +1,51 @@
 <div class="form-wrapper">
     <h2>Login</h2>
   
-    <form (ngSubmit)="submitForm(form)" #form="ngForm" >
+    <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
   
-      <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
-        
-        <span class="ui-float-label">
-            <input id="float-input" name="username" type="text" [(ngModel)]="username" #usernameField="ngModel" size="30" pInputText required> 
+        <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
+          <span class="ui-float-label">
+            <input id="float-input" name="username" type="text" [(ngModel)]="username" #usernameField="ngModel" size="30" required pInputText [disabled]="processing"> 
             <label for="float-input"> <i class="fa fa-user"></i> Username</label>
-        </span>        
+          </span>              
+        </div>
   
-        <span class="ui-float-label">
-            <input name="password" type="password" [(ngModel)]="password" #passwordField="ngModel" size="30" pPassword required> 
+        <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
+          <span class="ui-float-label">
+            <input name="password" type="password" [(ngModel)]="password" #passwordField="ngModel" size="30" pPassword required minlength="4" [disabled]="processing"> 
             <label for="float-input"> <i class="fas fa-key"></i> Password</label>
-        </span>        
+          </span>        
+        </div>
   
+        <div class="field submit">
+          <button pButton type="submit" label="Login" class="ui-button" [disabled]="processing"></button>        
+        </div>
+  
+        <div class="field more-info">
+          <span>Do not have an account? <a [routerLink]="['/signup']"> Sign up here</a></span>  
+        </div>
+  
+  </form>
+  
+    <div *ngIf="feedbackEnabled && form.invalid">
+      <p class="validation">The form has errors</p>
+    </div>
+
+    <div *ngIf="error" class="validation">
+      <div [ngSwitch]="error.code">
+        <p *ngSwitchCase="'not-found'">Username or Password incorrect</p>
+        <p *ngSwitchDefault>Unexpected error, please try again</p>
       </div>
-      
-      <div class="field submit">
-        <button pButton type="submit" label="Login" class="ui-button"></button>        
-      </div>
-    </form>
+    </div>
+  
+    <div *ngIf="feedbackEnabled && usernameField.errors">
+      <p *ngIf="usernameField.errors.required" class="validation">Username required</p>
+      <p *ngIf="usernameField.errors.minlength" class="validation">Username is too short</p>
+    </div>
+  
+    <div *ngIf="feedbackEnabled && passwordField.errors">
+      <p *ngIf="passwordField.errors.required" class="validation">Password required</p>
+      <p *ngIf="passwordField.errors.minlength" class="validation">Password is too short</p>
+    </div>
+  
   </div>

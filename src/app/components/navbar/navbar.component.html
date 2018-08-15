@@ -2,7 +2,9 @@
   <div class="nav-link nav-link-brand">
     <h1><a [routerLink]="['/']">KarmaPAD</a></h1>
   </div>
-  <a *ngIf="user" [routerLink]="['/private']">Logged as: {{user.username}}</a>   
+  <div *ngIf="user" class="nav-link">
+    <span>Logged as:</span><a [routerLink]="['/private']"> {{user.username}}</a>   
+  </div>
   <p-menu #menu [popup]="true" [model]="items"></p-menu>
   <div class="nav-link nav-link-toggle">
     <button type="button" pButton icon="fa fa-fw fa-bars" (click)="menu.toggle($event)"></button>
