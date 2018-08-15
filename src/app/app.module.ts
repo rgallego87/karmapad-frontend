@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 // Components
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 // Pages
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -25,23 +24,24 @@ import { MenuModule } from 'primeng/menu';
 import { RequireAnonGuard } from './guards/require-anon.guard';
 import { RequireUserGuard } from './guards/require-user.guard';
 import { InitAuthGuard } from './guards/init-auth.guard';
+import { E404PageComponent } from './pages/e404-page/e404-page.component';
 
-const routes: Routes = [ { path: '', component: HomeComponent, canActivate: [InitAuthGuard] },
+const routes: Routes = [ { path: '', component: HomePageComponent, canActivate: [InitAuthGuard] },
   { path: 'login',  component: LoginPageComponent, canActivate: [RequireAnonGuard] },
   { path: 'signup',  component: SignupPageComponent, canActivate: [RequireAnonGuard] },
   { path: 'private',  component: PrivatePageComponent, canActivate: [RequireUserGuard] },
-  { path: '**', redirectTo:'' }
+  { path: '**', component: E404PageComponent }
 ]
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
+    AppComponent,    
     LoginPageComponent,
     SignupPageComponent,
     PrivatePageComponent,
     HomePageComponent,
     NavbarComponent,
+    E404PageComponent,
   ],
   imports: [
     BrowserModule,
