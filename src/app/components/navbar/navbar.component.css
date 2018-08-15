@@ -5,6 +5,10 @@ h1 {
   margin: 0;
 }
 
+ul {
+  list-style-type: none;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -26,13 +30,18 @@ a {
   display: flex;
 }
 
+.nav-items a {
+  line-height: 1;
+  margin: 1vw;
+}
+
 .nav-items-right {
   margin-left: auto;
 }
 
-/* .nav-link-toggle {
+.nav-link-toggle {
   display: none;
-} */
+}
 
 @media only screen and (max-width: 768px) {
   .nav-items,
@@ -40,7 +49,7 @@ a {
     flex-direction: column;
   }
   .nav-items {
-    display:none;
+    display: none;
   }
   .nav-items-right {
     margin-left:0;
@@ -48,10 +57,10 @@ a {
   .nav-toggle {
     display: flex;
   }
-  .nav-link-toggle {
-    align-self: flex-end;
+  .nav-link-toggle {    
     display: initial;
     position: absolute;
     cursor: pointer;
+    right: 10px;
    } 
 }

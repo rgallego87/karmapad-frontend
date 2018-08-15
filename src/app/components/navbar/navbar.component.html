@@ -1,12 +1,19 @@
 <div class="navbar">
   <div class="nav-link nav-link-brand">
     <h1><a [routerLink]="['/']">KarmaPAD</a></h1>
-  </div>  
- <nav class="nav-items nav-items-right">
-  <a [routerLink]="['/private']">{{user.username}}</a>  
+  </div>
+  <a *ngIf="user" [routerLink]="['/private']">Logged as: {{user.username}}</a>   
   <p-menu #menu [popup]="true" [model]="items"></p-menu>
-  <button type="button" pButton icon="fa fa-fw fa-bars" (click)="menu.toggle($event)"></button>
- </nav>
+  <div class="nav-link nav-link-toggle">
+    <button type="button" pButton icon="fa fa-fw fa-bars" (click)="menu.toggle($event)"></button>
+  </div>
+ 
+  <ul class="nav-items nav-items-right">
+    <li *ngFor="let item of items" class="nav-link">
+      <a *ngIf="item.routerLink" [routerLink]="item.routerLink">{{item.label}}</a>
+      <a *ngIf="!item.routerLink" [routerLink]="['/login']" (click)="logout()">{{item.label}}</a>
+    </li>
+  </ul> 
 </div>
 
 
