@@ -1,3 +1,12 @@
-<p>
-  home-page works! HOLA!
-</p>
+<h2>  You can see all the text from others to take some ideas! </h2>
+<ul>
+  <li *ngFor="let text of texts">
+    <p>
+      {{text.title}}
+    </p>
+    <p>
+      {{text.textBody}}
+    </p>    
+  </li>
+  
+</ul>

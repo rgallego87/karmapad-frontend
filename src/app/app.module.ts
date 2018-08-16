@@ -21,6 +21,7 @@ import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { ToastModule } from 'primeng/toast';
 // import { MenuItem } from 'primeng/api'; 
 // Guards
 import { RequireAnonGuard } from './guards/require-anon.guard';
@@ -58,7 +59,8 @@ const routes: Routes = [ { path: '', component: HomePageComponent, canActivate: 
     PasswordModule,
     ButtonModule,
     MenuModule,
-    InputTextareaModule
+    InputTextareaModule,
+    ToastModule
     // MenuItem 
   ],
   providers: [],

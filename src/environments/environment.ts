@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  apiBaseURL: 'http://localhost:3000/api',
   apiAuthURL: 'http://localhost:3000/api/auth',
   apiTextsURL: 'http://localhost:3000/api/texts',
 };

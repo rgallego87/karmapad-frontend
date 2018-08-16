@@ -1,0 +1,39 @@
+h2 {
+  font-family: 'Open Sans', sans-serif;  
+  text-align: center;  
+}
+
+.form-wrapper {
+  margin: 50px auto;
+  width: 350px;
+  height: 240px;  
+  border-radius: 5px;
+}
+
+.form-wrapper p {
+  font-family: 'Open Sans', sans-serif;
+  color: red;
+}
+
+.field span,textarea {
+  margin: 20px;  
+}
+
+.field a {
+  margin-right: 20px;    
+  text-decoration: none;
+  color: #fff;
+  float: right;
+}
+
+.field label {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.field button {
+  float: right;
+}
+
+.submit {
+  width: 320px;
+}
