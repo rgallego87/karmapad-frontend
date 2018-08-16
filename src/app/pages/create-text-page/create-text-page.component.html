@@ -1,0 +1,19 @@
+<div class="form-wrapper">
+  <h2>Create new text</h2>
+
+  <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && titleField.errors}">
+        <span class="ui-float-label">
+          <input id="float-input" name="title" type="text" [(ngModel)]="title" #titleField="ngModel" size="30" required pInputText [disabled]="processing"> 
+          <label for="float-input"> Title</label>
+        </span>              
+      </div>
+
+      <textarea [rows]="5" [cols]="31" [(ngModel)]="body" #bodyField="ngModel" pInputTextarea autoResize="autoResize" placeholder="Put your text here" required></textarea>
+
+      <div class="field submit">
+        <button pButton type="submit" label="Send" class="ui-button" [disabled]="processing"></button>        
+      </div>
+  </form>
+</div>
