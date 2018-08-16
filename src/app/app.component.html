@@ -6,17 +6,6 @@
 
 <app-navbar></app-navbar>
 
-<!-- <div [ngClass]="{'is-user': user, 'is-anon': anon}">  
-  <div *ngIf="!loading && !!user">
-    <a [routerLink]="['/private']">{{user.username}}</a>
-    <a (click)="logout()">logout</a>
-  </div>
-  <div *ngIf="!loading && anon">
-    <a [routerLink]="['/login']">login</a>
-    <a [routerLink]="['/signup']">signup</a>
-  </div>
-</div> -->
-
 <router-outlet></router-outlet>
 
 <footer>

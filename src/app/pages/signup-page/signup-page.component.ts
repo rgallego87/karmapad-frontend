@@ -33,11 +33,10 @@ export class SignupPageComponent implements OnInit {
         username: this.username,
         password: this.password
       }).then(() => {
-        this.router.navigate(['/private']);
+        this.router.navigate(['/profile']);
       })
       .catch(error => {            
-        this.error = error.error;
-        console.log(error);
+        this.error = error.error;        
         this.processing = false;
         this.feedbackEnabled = false
       });

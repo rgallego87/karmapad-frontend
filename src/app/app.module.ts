@@ -11,7 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 // Pages
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
-import { PrivatePageComponent } from './pages/private-page/private-page.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 // PrimeNG
 import { AccordionModule } from 'primeng/accordion';   
@@ -29,7 +29,7 @@ import { E404PageComponent } from './pages/e404-page/e404-page.component';
 const routes: Routes = [ { path: '', component: HomePageComponent, canActivate: [InitAuthGuard] },
   { path: 'login',  component: LoginPageComponent, canActivate: [RequireAnonGuard] },
   { path: 'signup',  component: SignupPageComponent, canActivate: [RequireAnonGuard] },
-  { path: 'private',  component: PrivatePageComponent, canActivate: [RequireUserGuard] },
+  { path: 'profile',  component: ProfilePageComponent, canActivate: [RequireUserGuard] },
   { path: '**', component: E404PageComponent }
 ]
 
@@ -38,7 +38,7 @@ const routes: Routes = [ { path: '', component: HomePageComponent, canActivate: 
     AppComponent,    
     LoginPageComponent,
     SignupPageComponent,
-    PrivatePageComponent,
+    ProfilePageComponent,
     HomePageComponent,
     NavbarComponent,
     E404PageComponent,
