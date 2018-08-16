@@ -1,3 +1,14 @@
 <p>
   My profile!
 </p>
+
+<ul>
+  <li *ngFor="let text of texts">
+    <p>
+      {{text.title}}
+    </p>
+    <p>
+      {{text.textBody}}
+    </p>    
+  </li>  
+</ul>

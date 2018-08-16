@@ -8,7 +8,8 @@ import { environment } from '../../environments/environment';
 export class TextService {
 
   private API_URL = environment.apiTextsURL;
-  private text: any;
+  // private text: any;
+  // private id: any;
 
   constructor( private httpClient: HttpClient ) { }
 
@@ -23,6 +24,13 @@ export class TextService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${environment.apiBaseURL}/`, options).toPromise()
+    return this.httpClient.get(`${environment.apiBaseURL}/`, options).toPromise();
+  }
+
+  getAllbyUser(): any {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.API_URL}/`, options).toPromise();
   }
 }

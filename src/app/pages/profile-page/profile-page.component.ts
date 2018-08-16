@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TextService } from '../../services/text.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -6,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
+  
+  user: any;
+  texts: Array<any> = [];  
 
-  constructor() { }
+  constructor(
+    private textService: TextService,
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
+    // this.user = this.authService.getUser()
+    // console.log(this.user._id);
+    this.getAllbyUser()
+  }
+  
+  getAllbyUser() {
+    this.textService.getAllbyUser().then((texts) => {      
+      this.texts = texts;
+      console.log(texts);      
+    })    
   }
 
 }

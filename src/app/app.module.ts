@@ -32,7 +32,7 @@ import { E404PageComponent } from './pages/e404-page/e404-page.component';
 const routes: Routes = [ { path: '', component: HomePageComponent, canActivate: [InitAuthGuard] },
   { path: 'login', component: LoginPageComponent, canActivate: [RequireAnonGuard] },
   { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuard] },
-  { path: 'create', component: CreateTextPageComponent, canActivate: [RequireUserGuard] },
+  { path: 'texts/create', component: CreateTextPageComponent, canActivate: [RequireUserGuard] },
   { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuard] },
   { path: '**', component: E404PageComponent }
 ]
