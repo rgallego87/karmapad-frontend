@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 })
 export class AuthService {
 
-  private API_URL = environment.apiURL;
+  private API_URL = environment.apiAuthURL;
   private user: any;
   private userChange: Subject<any> = new Subject();
 

@@ -3,7 +3,7 @@
     <h1><a [routerLink]="['/']">KarmaPAD</a></h1>
   </div>
   <div *ngIf="user" class="nav-link">
-    <span>Logged as:</span><a [routerLink]="['/private']"> {{user.username}}</a>   
+    <span>Logged as:</span><a [routerLink]="['/profile']"> {{user.username}}</a>   
   </div>
   <p-menu #menu [popup]="true" [model]="items"></p-menu>
   <div class="nav-link nav-link-toggle">

@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 })
 export class TextService {
 
-  private API_URL = environment.apiURL;
+  private API_URL = environment.apiTextsURL;
   private text: any;
 
   constructor( private httpClient: HttpClient ) { }
@@ -17,8 +17,7 @@ export class TextService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.API_URL}/create`, text, options)
-      .toPromise()
-      .then((data) => (data));
+    return this.httpClient.post(`${this.API_URL}/create`, text, options).toPromise()
+      // .then((data) => (data));
   }
 }
