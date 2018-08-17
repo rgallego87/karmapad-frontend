@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 })
 export class TextService {
 
-  private API_URL = environment.apiTextsURL;
+  private API_URL = environment.apiURL;
   // private text: any;
   // private id: any;
 
@@ -17,20 +17,20 @@ export class TextService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.API_URL}/create`, text, options).toPromise();      
+    return this.httpClient.post(`${this.API_URL}/texts/create`, text, options).toPromise();      
   }
 
   listAll(): any {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${environment.apiBaseURL}/`, options).toPromise();
+    return this.httpClient.get(`${this.API_URL}/`, options).toPromise();
   }
 
   getAllbyUser(): any {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.API_URL}/`, options).toPromise();
+    return this.httpClient.get(`${this.API_URL}/texts/`, options).toPromise();
   }
 }
