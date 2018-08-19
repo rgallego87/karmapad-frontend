@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 // Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ListTextsComponent } from './components/list-texts/list-texts.component';
 // Pages
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
@@ -28,6 +29,7 @@ import { RequireAnonGuard } from './guards/require-anon.guard';
 import { RequireUserGuard } from './guards/require-user.guard';
 import { InitAuthGuard } from './guards/init-auth.guard';
 import { E404PageComponent } from './pages/e404-page/e404-page.component';
+import { TextCardComponent } from './components/text-card/text-card.component';
 
 const routes: Routes = [ { path: '', component: HomePageComponent, canActivate: [InitAuthGuard] },
   { path: 'login', component: LoginPageComponent, canActivate: [RequireAnonGuard] },
@@ -46,7 +48,9 @@ const routes: Routes = [ { path: '', component: HomePageComponent, canActivate: 
     HomePageComponent,
     NavbarComponent,
     E404PageComponent,
-    CreateTextPageComponent,    
+    CreateTextPageComponent,
+    ListTextsComponent,
+    TextCardComponent,    
   ],
   imports: [
     BrowserModule,

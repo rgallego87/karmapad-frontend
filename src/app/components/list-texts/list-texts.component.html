@@ -1,0 +1,6 @@
+<h2> List of texts </h2>
+<div *ngIf="texts">
+  <div *ngFor="let text of texts">
+    <app-text-card [text]="text"></app-text-card>
+  </div>
+</div>
