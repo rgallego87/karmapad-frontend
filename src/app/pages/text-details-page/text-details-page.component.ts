@@ -14,13 +14,14 @@ export class TextDetailsPageComponent implements OnInit {
   feedbackEnabled = false;
   error = null;
   processing = false;
-  sentimentResult: any;  
+  sentimentResult: any;
+  languageResult: any;  
 
   constructor(
     private textService: TextService,
     private route: ActivatedRoute,
     private router: Router,   
-  ) { }
+  ) {}
 
   ngOnInit() {    
     this.route.params
@@ -28,7 +29,7 @@ export class TextDetailsPageComponent implements OnInit {
       this.textService.getOne(params.id)
       .then(data => this.text = data);
     });
-  }
+  }  
   
   submitForm(form) {
     this.error = '';
@@ -39,7 +40,9 @@ export class TextDetailsPageComponent implements OnInit {
       .subscribe((params) => {
         this.textService.analyze(params.id)
         .then(data => {          
-          this.sentimentResult = data["documents"][0].score;
+          console.log(data);
+          this.sentimentResult = data.documentProcessed["documents"][0].score;
+          this.languageResult = data.language;
         })
         .catch(error => {            
           this.error = error.error;        

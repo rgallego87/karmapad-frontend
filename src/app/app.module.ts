@@ -70,7 +70,7 @@ const routes: Routes = [ { path: '', component: HomePageComponent, canActivate: 
     InputTextareaModule,
     ToastModule,
     CardModule,
-    PanelModule        
+    PanelModule,            
   ],
   providers: [],
   bootstrap: [AppComponent]
