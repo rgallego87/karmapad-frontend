@@ -17,16 +17,13 @@ export class ProfilePageComponent implements OnInit {
     private authService: AuthService
   ) { }
 
-  ngOnInit() {
-    // this.user = this.authService.getUser()
-    // console.log(this.user._id);
+  ngOnInit() {    
     this.getAllbyUser()
   }
   
   getAllbyUser() {
     this.textService.getAllbyUser().then((texts) => {      
-      this.texts = texts;
-      console.log(texts);      
+      this.texts = texts;         
     })    
   }
 

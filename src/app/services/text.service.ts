@@ -7,9 +7,7 @@ import { environment } from '../../environments/environment';
 })
 export class TextService {
 
-  private API_URL = environment.apiURL;
-  // private text: any;
-  // private id: any;
+  private API_URL = environment.apiURL;  
 
   constructor( private httpClient: HttpClient ) { }
 
@@ -32,5 +30,12 @@ export class TextService {
       withCredentials: true
     };
     return this.httpClient.get(`${this.API_URL}/texts/`, options).toPromise();
+  }
+
+  getOne(id: any): any {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.API_URL}/texts/${id}`, options).toPromise();
   }
 }

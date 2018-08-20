@@ -9,12 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListTextsComponent } from './components/list-texts/list-texts.component';
+import { E404PageComponent } from './pages/e404-page/e404-page.component';
+import { TextCardComponent } from './components/text-card/text-card.component';
 // Pages
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { CreateTextPageComponent } from './pages/create-text-page/create-text-page.component';
+import { TextDetailsPageComponent } from './pages/text-details-page/text-details-page.component';
 // PrimeNG
 import { AccordionModule } from 'primeng/accordion';   
 import { InputTextModule } from 'primeng/inputtext';
@@ -22,18 +25,16 @@ import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { ToastModule } from 'primeng/toast';
-// import { MenuItem } from 'primeng/api'; 
+import { ToastModule } from 'primeng/toast'; 
 // Guards
 import { RequireAnonGuard } from './guards/require-anon.guard';
 import { RequireUserGuard } from './guards/require-user.guard';
 import { InitAuthGuard } from './guards/init-auth.guard';
-import { E404PageComponent } from './pages/e404-page/e404-page.component';
-import { TextCardComponent } from './components/text-card/text-card.component';
 
 const routes: Routes = [ { path: '', component: HomePageComponent, canActivate: [InitAuthGuard] },
   { path: 'login', component: LoginPageComponent, canActivate: [RequireAnonGuard] },
   { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuard] },
+  { path: 'texts/:id', component: TextDetailsPageComponent },
   { path: 'texts/create', component: CreateTextPageComponent, canActivate: [RequireUserGuard] },
   { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuard] },
   { path: '**', component: E404PageComponent }
@@ -50,7 +51,8 @@ const routes: Routes = [ { path: '', component: HomePageComponent, canActivate: 
     E404PageComponent,
     CreateTextPageComponent,
     ListTextsComponent,
-    TextCardComponent,    
+    TextCardComponent,
+    TextDetailsPageComponent,    
   ],
   imports: [
     BrowserModule,
@@ -64,8 +66,7 @@ const routes: Routes = [ { path: '', component: HomePageComponent, canActivate: 
     ButtonModule,
     MenuModule,
     InputTextareaModule,
-    ToastModule
-    // MenuItem 
+    ToastModule     
   ],
   providers: [],
   bootstrap: [AppComponent]
