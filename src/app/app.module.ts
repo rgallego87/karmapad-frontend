@@ -25,7 +25,9 @@ import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { ToastModule } from 'primeng/toast'; 
+import { ToastModule } from 'primeng/toast';
+import { CardModule } from 'primeng/card';
+import { PanelModule } from 'primeng/panel';
 // Guards
 import { RequireAnonGuard } from './guards/require-anon.guard';
 import { RequireUserGuard } from './guards/require-user.guard';
@@ -34,9 +36,9 @@ import { InitAuthGuard } from './guards/init-auth.guard';
 const routes: Routes = [ { path: '', component: HomePageComponent, canActivate: [InitAuthGuard] },
   { path: 'login', component: LoginPageComponent, canActivate: [RequireAnonGuard] },
   { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuard] },
-  { path: 'texts/:id', component: TextDetailsPageComponent },
   { path: 'texts/create', component: CreateTextPageComponent, canActivate: [RequireUserGuard] },
   { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuard] },
+  { path: 'texts/:id', component: TextDetailsPageComponent },
   { path: '**', component: E404PageComponent }
 ]
 
@@ -66,7 +68,9 @@ const routes: Routes = [ { path: '', component: HomePageComponent, canActivate: 
     ButtonModule,
     MenuModule,
     InputTextareaModule,
-    ToastModule     
+    ToastModule,
+    CardModule,
+    PanelModule        
   ],
   providers: [],
   bootstrap: [AppComponent]

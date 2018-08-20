@@ -1,6 +1,5 @@
-<h2> List of texts </h2>
-<div *ngIf="texts">
-  <div *ngFor="let text of texts">
+<div *ngIf="texts" class="ui-g">
+  <div *ngFor="let text of texts" class="ui-g-12 ui-md-6 ui-lg-3">
     <app-text-card [text]="text"></app-text-card>
   </div>
 </div>

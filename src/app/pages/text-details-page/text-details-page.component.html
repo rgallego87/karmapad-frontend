@@ -1,9 +1,15 @@
 <h2>Text details</h2>
-<div class="form-wrapper" *ngIf="text">
-  <h3>
-    {{text.title}}
-  </h3>
-  <p>
-    {{text.textBody}}
-  </p>    
+<div class="form-wrapper" *ngIf="text"> 
+
+  <p-card title="{{text.title}}" [style]="{width: '360px'}" styleClass="ui-card-shadow">
+    <p-header>
+        <img src="Card" src="https://www.primefaces.org/primeng/assets/showcase/images/usercard.png">
+    </p-header>
+    <div>{{text.textBody}}</div>
+    <p-footer>
+        <button pButton type="button" label="Analyze" icon="pi pi-check" style="margin-right: .25em"></button>
+    </p-footer>
+  </p-card>
+
 </div>
+
