@@ -42,6 +42,8 @@ export class TextDetailsPageComponent implements OnInit {
         .then(data => {          
           console.log(data);
           this.sentimentResult = data.documentProcessed["documents"][0].score;
+          this.sentimentResult = parseFloat(this.sentimentResult).toFixed(2);
+          this.sentimentResult = this.sentimentResult * 100;
           this.languageResult = data.language;
         })
         .catch(error => {            

@@ -7,9 +7,11 @@
     </p-header>
     <div>{{text.textBody}}</div>
     <p-footer>
-          <button pButton type="submit" label="Analyze" icon="pi pi-check" class="ui-button"></button>
-          <div>Valoration: {{sentimentResult}}</div>
-          <div>Language: {{languageResult}}</div>                
+      <button pButton type="submit" label="Analyze" icon="pi pi-check" class="ui-button"></button>
+      <div class="ui-g">               
+        <div class="ui-g-12 ui-md-6 ui-lg-4"><h4>Valoration:</h4> {{sentimentResult}}<span *ngIf="sentimentResult">%</span></div>
+        <div class="ui-g-12 ui-lg-4"><h4>Language:</h4> {{languageResult}}</div>                
+      </div>
     </p-footer>
   </p-card>
 </form>
