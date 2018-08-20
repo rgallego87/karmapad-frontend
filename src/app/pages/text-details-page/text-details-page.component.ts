@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TextService } from '../../services/text.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-text-details-page',
@@ -10,10 +11,15 @@ import { TextService } from '../../services/text.service';
 export class TextDetailsPageComponent implements OnInit {
 
   text: any;
+  feedbackEnabled = false;
+  error = null;
+  processing = false;
+  sentimentResult: any;  
 
   constructor(
     private textService: TextService,
-    private route: ActivatedRoute   
+    private route: ActivatedRoute,
+    private router: Router,   
   ) { }
 
   ngOnInit() {    
@@ -22,6 +28,27 @@ export class TextDetailsPageComponent implements OnInit {
       this.textService.getOne(params.id)
       .then(data => this.text = data);
     });
-  }  
+  }
+  
+  submitForm(form) {
+    this.error = '';
+    this.feedbackEnabled = true;
+    if (form.valid) {
+      this.processing = true;
+      this.route.params
+      .subscribe((params) => {
+        this.textService.analyze(params.id)
+        .then(data => {          
+          this.sentimentResult = data["documents"][0].score;
+        })
+        .catch(error => {            
+          this.error = error.error;        
+          this.processing = false;
+          this.feedbackEnabled = false
+        });
+      })
+        
+    }
+  }
 
 }

@@ -38,4 +38,11 @@ export class TextService {
     };
     return this.httpClient.get(`${this.API_URL}/texts/${id}`, options).toPromise();
   }
+
+  analyze(id: any): any {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.post(`${this.API_URL}/texts/${id}/analyze`, options).toPromise();
+  }
 }

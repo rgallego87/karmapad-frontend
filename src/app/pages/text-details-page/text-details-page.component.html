@@ -1,15 +1,16 @@
 <h2>Text details</h2>
 <div class="form-wrapper" *ngIf="text"> 
-
+<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate>
   <p-card title="{{text.title}}" [style]="{width: '360px'}" styleClass="ui-card-shadow">
     <p-header>
         <img src="Card" src="https://www.primefaces.org/primeng/assets/showcase/images/usercard.png">
     </p-header>
     <div>{{text.textBody}}</div>
     <p-footer>
-        <button pButton type="button" label="Analyze" icon="pi pi-check" style="margin-right: .25em"></button>
+          <button pButton type="submit" label="Analyze" icon="pi pi-check" class="ui-button"></button>
+          <div>Valoration: {{sentimentResult}}</div>                
     </p-footer>
   </p-card>
-
+</form>
 </div>
 
