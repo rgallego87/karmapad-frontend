@@ -17,6 +17,7 @@ export class TextDetailsPageComponent implements OnInit {
   processing = false;
   sentimentResult: any;
   languageResult: any;
+  keyPhrasesResult: any;
 
   constructor(
     private textService: TextService,
@@ -45,7 +46,8 @@ export class TextDetailsPageComponent implements OnInit {
           this.sentimentResult = data.documentProcessed["documents"][0].score;
           this.sentimentResult = parseFloat(this.sentimentResult).toFixed(2);
           this.sentimentResult = this.sentimentResult * 100;
-          this.languageResult = data.language;
+          this.languageResult  = data.language;
+          this.keyPhrasesResult = data.keyPhrases;
           this.processing = false;
         })
         .catch(error => {            
@@ -56,6 +58,15 @@ export class TextDetailsPageComponent implements OnInit {
       })
         
     }
+  }
+
+  // Filling right color on Valoration bar
+  getColor(valoration) { 
+    if (valoration > 50) {
+      return 'green';
+    } else if (valoration < 50) {
+      return 'red';
+    } else return 'blue';
   }
 
   // Message Service methods to show toast messages
