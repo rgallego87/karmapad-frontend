@@ -6,7 +6,7 @@
     {{text.textBody}}
   </p>
   <p-footer>      
-    <button [routerLink]="['/texts/',text._id]" pButton type="button" icon="pi pi-search" label="View" class="ui-button-success"></button>
-    <button *ngIf="router.url != '/'" (click)="deleteText()" pButton type="button" icon="pi pi-times-circle" label="Delete" class="ui-button-danger"></button>
+    <button [routerLink]="['/texts/',text._id]" pButton type="button" icon="pi pi-search" label="View" class="ui-button-success cardButton"></button>
+    <button *ngIf="router.url != '/'" (click)="deleteText()" pButton type="button" icon="pi pi-times-circle" label="Delete" class="ui-button-danger cardButton"></button>
   </p-footer>
 </p-panel>
