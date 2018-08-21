@@ -10,7 +10,7 @@
       <p-footer>
         
         <p-progressBar *ngIf="processing" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
-        <button pButton type="submit" (click)="showSuccess(form)" label="Analyze" icon="pi pi-check" class="ui-button"></button>
+        <button pButton type="submit" label="Analyze" icon="pi pi-check" class="ui-button"></button>        
         <div *ngIf="sentimentResult" class="ui-g">               
           <div class="ui-g-12 ui-md-6 ui-lg-4"><h4>Valoration:</h4><p-progressBar [value]="sentimentResult" [ngStyle]="{'background-color':getColor(sentimentResult)}" ></p-progressBar></div>        
           <div class="ui-g-12 ui-lg-4"><h4>Language:</h4> {{languageResult}}</div>                
@@ -24,4 +24,3 @@
     </p-card>
   </form>
 </div>
-

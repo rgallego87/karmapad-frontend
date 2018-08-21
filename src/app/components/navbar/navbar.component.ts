@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
 
         if (!this.loading && !!this.user) {
           this.items = [
-            { label: 'My Profile', icon: 'pi pi-fw pi-user', routerLink:['/profile'] },
+            { label: 'My texts', icon: 'pi pi-fw pi-user', routerLink:['/profile'] },
             { label: 'Create text', icon: 'pi pi-fw pi-pencil', routerLink:['/texts/create'] },        
             { label: 'Logout', icon: 'pi pi-fw pi-power-off', command: () => this.logout() }            
           ];

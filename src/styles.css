@@ -109,6 +109,7 @@ a {
 }
 
 .nav-items a {
+  color: white;
   line-height: 1;
   margin: 1vw;
 }
