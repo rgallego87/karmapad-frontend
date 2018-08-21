@@ -1,3 +1,4 @@
+<p-toast [style]="{marginTop: '160px', backgroundColor: 'white'}" position="top-center" [baseZIndex]="5000"></p-toast>
 <h2>Text details</h2>
 <div class="form-wrapper" *ngIf="text"> 
 <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate>
@@ -7,7 +8,9 @@
     </p-header>
     <div>{{text.textBody}}</div>
     <p-footer>
-      <button pButton type="submit" label="Analyze" icon="pi pi-check" class="ui-button"></button>
+      
+      <p-progressBar *ngIf="processing" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+      <button pButton type="submit" (click)="showSuccess(form)" label="Analyze" icon="pi pi-check" class="ui-button"></button>
       <div class="ui-g">               
         <div class="ui-g-12 ui-md-6 ui-lg-4"><h4>Valoration:</h4> {{sentimentResult}}<span *ngIf="sentimentResult">%</span></div>
         <div class="ui-g-12 ui-lg-4"><h4>Language:</h4> {{languageResult}}</div>                

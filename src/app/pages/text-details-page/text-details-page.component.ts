@@ -1,26 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TextService } from '../../services/text.service';
-import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-text-details-page',
   templateUrl: './text-details-page.component.html',
-  styleUrls: ['./text-details-page.component.css']
+  styleUrls: ['./text-details-page.component.css'],
+  providers: [MessageService]
 })
 export class TextDetailsPageComponent implements OnInit {
 
-  text: any;
+  text: any;  
   feedbackEnabled = false;
   error = null;
   processing = false;
   sentimentResult: any;
-  languageResult: any;  
+  languageResult: any;
 
   constructor(
     private textService: TextService,
-    private route: ActivatedRoute,
-    private router: Router,   
+    private route: ActivatedRoute,    
+    private messageService: MessageService   
   ) {}
 
   ngOnInit() {    
@@ -45,6 +46,7 @@ export class TextDetailsPageComponent implements OnInit {
           this.sentimentResult = parseFloat(this.sentimentResult).toFixed(2);
           this.sentimentResult = this.sentimentResult * 100;
           this.languageResult = data.language;
+          this.processing = false;
         })
         .catch(error => {            
           this.error = error.error;        
@@ -55,5 +57,15 @@ export class TextDetailsPageComponent implements OnInit {
         
     }
   }
+
+  // Message Service methods to show toast messages
+  showSuccess(form) {
+    if (form.valid && this.processing === false) {
+      this.messageService.add({severity: 'info', summary: 'Success', detail: 'Process Completed'});    
+    }
+  }
+  onConfirm() {this.messageService.clear('c');}
+  onReject() {this.messageService.clear('c');}
+  clear() {this.messageService.clear();}
 
 }
