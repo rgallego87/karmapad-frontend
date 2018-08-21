@@ -1,17 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { Subject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TextService {
-
-  private textDeleted: Subject<any> = new Subject();
-  private API_URL = environment.apiURL;  
-
-  textDeleted$: Observable<any> = this.textDeleted.asObservable();
+  
+  private API_URL = environment.apiURL;   
 
   constructor( private httpClient: HttpClient ) { }
 

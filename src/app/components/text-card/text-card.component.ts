@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { TextService } from '../../services/text.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-text-card',
@@ -11,6 +11,7 @@ import { TextService } from '../../services/text.service';
 export class TextCardComponent implements OnInit {
 
   @Input() text: any;
+  @Output() cardDeleted:EventEmitter<any> = new EventEmitter<any>();
   
   anon: boolean;
   user: any;  
@@ -18,7 +19,7 @@ export class TextCardComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private textService: TextService,
-    private router: Router    
+    private router: Router     
   ) { }
 
   ngOnInit() {    
@@ -29,8 +30,7 @@ export class TextCardComponent implements OnInit {
   }
   
   deleteText() {    
-    this.textService.deleteOne(this.text._id)
-      .then(() => this.router.navigate(['/']))
+    this.cardDeleted.emit(this.text._id);
+    this.textService.deleteOne(this.text._id);      
   }
-
 }

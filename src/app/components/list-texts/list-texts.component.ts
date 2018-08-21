@@ -9,9 +9,17 @@ export class ListTextsComponent implements OnInit {
 
   @Input() texts: Array<any>;  
 
-  constructor() { }
+  constructor() { }  
 
-  ngOnInit() {
-  }  
+  ngOnInit() {    
+  }
+
+  onDeleted(textId: any) {
+    for (let i = 0; i < this.texts.length; i++) {
+      if (this.texts[i]._id === textId) {
+        this.texts.splice(i,1);
+      }
+    }    
+  }
 
 }
