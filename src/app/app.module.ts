@@ -33,6 +33,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { RequireAnonGuard } from './guards/require-anon.guard';
 import { RequireUserGuard } from './guards/require-user.guard';
 import { InitAuthGuard } from './guards/init-auth.guard';
+import { FooterComponent } from './components/footer/footer.component';
 
 const routes: Routes = [ { path: '', component: HomePageComponent, canActivate: [InitAuthGuard] },
   { path: 'login', component: LoginPageComponent, canActivate: [RequireAnonGuard] },
@@ -55,7 +56,8 @@ const routes: Routes = [ { path: '', component: HomePageComponent, canActivate: 
     CreateTextPageComponent,
     ListTextsComponent,
     TextCardComponent,
-    TextDetailsPageComponent,    
+    TextDetailsPageComponent,
+    FooterComponent,    
   ],
   imports: [
     BrowserModule,

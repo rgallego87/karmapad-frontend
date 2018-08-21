@@ -4,6 +4,7 @@
 
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 
 *, *:before, *:after {
@@ -12,8 +13,17 @@ html {
 
 body {
   font-family: 'Open Sans', Helvetica, sans-serif;
-  margin: 0;
+  height: 100%;
+  margin: 0;  
   padding: 80px 0 80px 0;
+}
+
+.break-word {
+  word-break: break-all;
+}
+
+.content {
+  min-height: calc(100vh - 80px);       
 }
 
 .text-center {
@@ -32,7 +42,7 @@ form.is-processing {
 }
 
 form .field {
-	margin-bottom: 20px;
+	margin: 20px;
 }
 
 form label {
@@ -164,13 +174,6 @@ h2 {
   margin: 20px;  
 }
 
-.field a {
-  margin-right: 20px;    
-  text-decoration: none;
-  color: #fff;
-  float: right;
-}
-
 .field label {
   font-family: 'Open Sans', sans-serif;
 }
@@ -179,27 +182,24 @@ h2 {
   float: right;
 }
 
-.field a {
-  margin-right: 20px;    
+.field a {  
   text-decoration: none;
-  color: #fff;
-  float: right;
+  font-weight: 800;
+  color: #fff;  
 }
 
 .submit {
-  width: 320px;
+  width: 300px;
 }
 
 /* -- Footer -- */
 
 .footer {
-  width: 100%;
-  position: fixed;
+  width: 100%;  
   background-color: #186ba0;
   color: #fff;
   font-family: 'Open Sans', Helvetica, sans-serif;
-  text-align: center;
-  bottom: 0;
+  text-align: center;    
 }
 
 .footer ul {
