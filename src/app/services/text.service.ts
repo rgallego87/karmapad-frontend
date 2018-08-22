@@ -52,4 +52,11 @@ export class TextService {
     };
     return this.httpClient.post(`${this.API_URL}/texts/${id}/analyze`, options).toPromise();
   }
+
+  contextualize(id: any): any {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.post(`${this.API_URL}/texts/${id}/contextualize`, options).toPromise();
+  }
 }

@@ -43,6 +43,7 @@ export class TextDetailsPageComponent implements OnInit {
       this.processing = true;
       this.route.params
       .subscribe((params) => {
+        this.textService.contextualize(params.id)
         this.textService.analyze(params.id)
         .then(data => {          
           console.log(data);
@@ -50,8 +51,7 @@ export class TextDetailsPageComponent implements OnInit {
           this.sentimentResult = parseFloat(this.sentimentResult).toFixed(2);
           this.sentimentResult = this.sentimentResult * 100;
           this.languageResult  = data.language;
-          this.keyPhrasesResult = data.keyPhrases;
-          console.log(this.keyPhrasesResult);
+          this.keyPhrasesResult = data.keyPhrases;          
           this.processing = false;
         })
         .then(() => {
