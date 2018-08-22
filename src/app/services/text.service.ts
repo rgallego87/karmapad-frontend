@@ -9,7 +9,7 @@ export class TextService {
   
   private API_URL = environment.apiURL;   
 
-  constructor( private httpClient: HttpClient ) { }
+  constructor( private httpClient: HttpClient ) { }  
 
   create(text: any): Promise<any> {
     const options = {
