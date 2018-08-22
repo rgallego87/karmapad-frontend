@@ -1,7 +1,8 @@
 <p-toast [style]="{marginTop: '160px', backgroundColor: 'white'}" position="top-center" [baseZIndex]="5000"></p-toast>
 <h2>Text details</h2>
 
-<div class="ui-g">
+<div class="ui-g flex-center">
+
     <div class="ui-g-12 ui-md-6 ui-lg-4">
       <div class="form-wrapper" *ngIf="text"> 
           <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate>
@@ -12,7 +13,7 @@
                 <div>{{text.textBody}}</div>
               <p-footer>
                 
-                <p-progressBar *ngIf="processing" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+                <p-progressBar *ngIf="processing" mode="indeterminate" [style]="{'height': '10px', marginBottom:'10px'}"></p-progressBar>
                 <button pButton type="submit" label="Analyze" icon="pi pi-check" class="ui-button"></button>        
                 <div *ngIf="sentimentResult" class="ui-g">               
                   <div class="ui-g-12 ui-md-6 ui-lg-4"><h4>Valoration:</h4><p-progressBar [value]="sentimentResult" [ngStyle]="{'background-color':getColor(sentimentResult)}" ></p-progressBar></div>        
@@ -28,14 +29,16 @@
           </form>
         </div>
     </div>
+
     <div *ngIf="sentimentResult" class="ui-g-12 ui-md-6 ui-lg-4">
       <div class="form-wrapper">
         <p-chart type="bar" [data]="chartBarData"></p-chart>
       </div>
       <div class="form-wrapper">
-          <p-chart type="radar" [data]="chartRadarData"></p-chart>
-        </div>
-    </div>    
+        <p-chart type="radar" [data]="chartRadarData"></p-chart>
+      </div>
+    </div> 
+
 </div>
 
 

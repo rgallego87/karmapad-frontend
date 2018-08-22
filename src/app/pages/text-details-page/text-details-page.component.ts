@@ -42,8 +42,7 @@ export class TextDetailsPageComponent implements OnInit {
     if (form.valid) {
       this.processing = true;
       this.route.params
-      .subscribe((params) => {
-        this.textService.contextualize(params.id)
+      .subscribe((params) => {        
         this.textService.analyze(params.id)
         .then(data => {          
           console.log(data);
@@ -74,20 +73,23 @@ export class TextDetailsPageComponent implements OnInit {
             ]
         }
         })
-        .then(() => {
-          // Keyphrases Chart
-          this.chartRadarData = {
-            labels: this.keyPhrasesResult,
+        .then(() => {           
+          return this.textService.contextualize(params.id); 
+        })
+        .then(resultTextCategories => {          
+          // Context categories Chart
+          this.chartRadarData = {            
+            labels: resultTextCategories.categories.map(cat => cat.name),
             datasets: [
                 {
-                    label: 'Key Phrases Weight',
+                    label: 'Social context',
                     backgroundColor: 'rgba(179,181,198,0.2)',
                     borderColor: 'rgba(179,181,198,1)',
                     pointBackgroundColor: 'rgba(179,181,198,1)',
                     pointBorderColor: '#fff',
                     pointHoverBackgroundColor: '#fff',
                     pointHoverBorderColor: 'rgba(179,181,198,1)',
-                    data: [65, 59, 90, 81, 56, 55, 40]
+                    data: resultTextCategories.categories.map(cat => cat.score)
                 }
             ]
         };

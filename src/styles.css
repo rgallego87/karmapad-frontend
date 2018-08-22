@@ -40,6 +40,21 @@ body a {
   margin: 3px !important;
 }
 
+/* centering */
+
+.inline-block-center {
+  text-align: center;
+}
+.inline-block-center div {
+  display: inline-block;
+  text-align: left;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
 /* -- forms -- */
 
 form {
