@@ -1,26 +1,42 @@
 <p-toast [style]="{marginTop: '160px', backgroundColor: 'white'}" position="top-center" [baseZIndex]="5000"></p-toast>
 <h2>Text details</h2>
-<div class="form-wrapper" *ngIf="text"> 
-  <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate>
-    <p-card title="{{text.title}}" [style]="{width: '360px'}" styleClass="ui-card-shadow">
-      <p-header>
-          <img src="Card" src="https://www.primefaces.org/primeng/assets/showcase/images/usercard.png">
-      </p-header>
-        <div>{{text.textBody}}</div>
-      <p-footer>
-        
-        <p-progressBar *ngIf="processing" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
-        <button pButton type="submit" label="Analyze" icon="pi pi-check" class="ui-button"></button>        
-        <div *ngIf="sentimentResult" class="ui-g">               
-          <div class="ui-g-12 ui-md-6 ui-lg-4"><h4>Valoration:</h4><p-progressBar [value]="sentimentResult" [ngStyle]="{'background-color':getColor(sentimentResult)}" ></p-progressBar></div>        
-          <div class="ui-g-12 ui-lg-4"><h4>Language:</h4> {{languageResult}}</div>                
-        </div>
-        <div *ngIf="keyPhrasesResult" class="ui-g">
-            <h4>Key Phrases:</h4>
-            <span class="ui-g-12 break-word">{{keyPhrasesResult}}</span>
-        </div>
 
-      </p-footer>
-    </p-card>
-  </form>
+
+<div class="ui-g">
+    <div class="ui-g-12 ui-md-6 ui-lg-4">
+      <div class="form-wrapper" *ngIf="text"> 
+          <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate>
+            <p-card title="{{text.title}}" [style]="{width: '360px'}" styleClass="ui-card-shadow">
+              <p-header>
+                  <img src="Card" src="https://www.primefaces.org/primeng/assets/showcase/images/usercard.png">
+              </p-header>
+                <div>{{text.textBody}}</div>
+              <p-footer>
+                
+                <p-progressBar *ngIf="processing" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+                <button pButton type="submit" label="Analyze" icon="pi pi-check" class="ui-button"></button>        
+                <div *ngIf="sentimentResult" class="ui-g">               
+                  <div class="ui-g-12 ui-md-6 ui-lg-4"><h4>Valoration:</h4><p-progressBar [value]="sentimentResult" [ngStyle]="{'background-color':getColor(sentimentResult)}" ></p-progressBar></div>        
+                  <div class="ui-g-12 ui-lg-4"><h4>Language:</h4> {{languageResult}}</div>                
+                </div>
+                <div *ngIf="keyPhrasesResult" class="ui-g">
+                    <h4>Key Phrases:</h4>
+                    <span class="ui-g-12 break-word">{{keyPhrasesResult}}</span>
+                </div>
+        
+              </p-footer>
+            </p-card>
+          </form>
+        </div>
+    </div>
+    <div *ngIf="sentimentResult" class="ui-g-12 ui-md-6 ui-lg-4">
+      <div class="form-wrapper">
+        <p-chart type="bar" [data]="chartBarData"></p-chart>
+      </div>
+      <div class="form-wrapper">
+          <p-chart type="radar" [data]="chartRadarData"></p-chart>
+        </div>
+    </div>    
 </div>
+
+

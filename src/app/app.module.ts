@@ -29,6 +29,7 @@ import { ToastModule } from 'primeng/toast';
 import { CardModule } from 'primeng/card';
 import { PanelModule } from 'primeng/panel';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { ChartModule } from 'primeng/chart';
 // Guards
 import { RequireAnonGuard } from './guards/require-anon.guard';
 import { RequireUserGuard } from './guards/require-user.guard';
@@ -74,7 +75,8 @@ const routes: Routes = [ { path: '', component: HomePageComponent, canActivate: 
     ToastModule,
     CardModule,
     PanelModule,
-    ProgressBarModule            
+    ProgressBarModule,
+    ChartModule            
   ],
   providers: [],
   bootstrap: [AppComponent]

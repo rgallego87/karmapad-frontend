@@ -19,13 +19,16 @@ export class TextDetailsPageComponent implements OnInit {
   languageResult: any;
   keyPhrasesResult: any;
 
+  chartBarData: any;
+  chartRadarData: any;
+
   constructor(
     private textService: TextService,
     private route: ActivatedRoute,    
-    private messageService: MessageService   
+    private messageService: MessageService       
   ) {}
 
-  ngOnInit() {    
+  ngOnInit() {   
     this.route.params
     .subscribe((params) => {
       this.textService.getOne(params.id)
@@ -48,7 +51,46 @@ export class TextDetailsPageComponent implements OnInit {
           this.sentimentResult = this.sentimentResult * 100;
           this.languageResult  = data.language;
           this.keyPhrasesResult = data.keyPhrases;
+          console.log(this.keyPhrasesResult);
           this.processing = false;
+        })
+        .then(() => {
+          // Sentiment Bar Chart  
+          this.chartBarData = {
+            labels: ['Sentiment'],
+            datasets: [
+                {
+                    label: 'Positive',
+                    backgroundColor: '#34A835',
+                    borderColor: '#34A835',
+                    data: [this.sentimentResult]
+                },
+                {
+                    label: 'Negative',
+                    backgroundColor: '#e91224',
+                    borderColor: '#e91224',
+                    data: [100 - this.sentimentResult]
+                }
+            ]
+        }
+        })
+        .then(() => {
+          // Keyphrases Chart
+          this.chartRadarData = {
+            labels: this.keyPhrasesResult,
+            datasets: [
+                {
+                    label: 'Key Phrases Weight',
+                    backgroundColor: 'rgba(179,181,198,0.2)',
+                    borderColor: 'rgba(179,181,198,1)',
+                    pointBackgroundColor: 'rgba(179,181,198,1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(179,181,198,1)',
+                    data: [65, 59, 90, 81, 56, 55, 40]
+                }
+            ]
+        };
         })
         .catch(error => {            
           this.error = error.error;        
