@@ -19,7 +19,7 @@ export class TextCardComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private textService: TextService,
-    private router: Router     
+    public router: Router     
   ) { }
 
   ngOnInit() {    
