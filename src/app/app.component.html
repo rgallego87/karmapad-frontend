@@ -1,19 +1,12 @@
-<link rel="stylesheet" type="text/css" href="/public/primeicons.css" />
-<link rel="stylesheet" type="text/css" href="/public/theme.css" />
-<link rel="stylesheet" type="text/css" href="/public/primeng.min.css"/>
+<!-- <link rel="stylesheet" type="text/css" href="/node_modules/primeicons/primeicons.css" />
+<link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/themes/nova-light/theme.css" />
+<link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/primeng.min.css" /> -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Open+Sans" rel="stylesheet">
 
+
 <app-navbar></app-navbar>
-
-<router-outlet></router-outlet>
-
-<footer>
-  <div class="footer">
-    <ul>
-      <h3>Contact Info</h3>
-      <li>By Rafa Gallego</li>      
-      <li><a href="mailto:rgdmax@gmail.com"></a> Email: rgdmax@gmail.com</li>
-    </ul>
-  </div>
-</footer>
+<div class="content">  
+    <router-outlet></router-outlet>  
+</div>
+<app-footer></app-footer>

@@ -1,6 +1,6 @@
 <div class="navbar">
   <div class="nav-link nav-link-brand">
-    <h1><a [routerLink]="['/']">KarmaPAD</a></h1>
+    <h1 [routerLink]="['/']">KarmaPAD</h1>
   </div>
   <div *ngIf="user" class="nav-link">
     <span>Logged as:</span><a [routerLink]="['/profile']"> {{user.username}}</a>   
